@@ -4,8 +4,10 @@ interface CardListProps {
 
 export const CardList = ({ children }: CardListProps): JSX.Element => {
   return (
-    <div className='mt-4 space-y-3'>
-      {children}
-    </div>
+    <div className="p-4">
+      <div className="grid grid-cols-2 gap-4">
+        {children}
+      </div>
+  </div>
   )
 }

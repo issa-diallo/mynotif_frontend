@@ -10,6 +10,7 @@ import { Button } from './inputGroups/Button'
 import { useForm } from 'react-hook-form'
 import { AuthFormType } from '../../types'
 import { resolver } from './validations/ValidationAuth'
+import { Input } from './inputGroups/Input'
 
 const LoginForm = (): JSX.Element => {
   const { setToken } = useContext(TokenContext)
@@ -41,21 +42,24 @@ const LoginForm = (): JSX.Element => {
   return (
     <form className='mt-1 p-1 space-y-4 ' onSubmit={handleSubmit(onLogin)}>
       <InputFieldContainer icon={['fas', 'user']}>
-      <input
-        className='flex-grow outline-none text-gray-600'
-        {...register('email')}
+       <Input
+          type='email'
+          register={register}
+          id='email'
           placeholder={t('form.emailAddress')}
-      />
+          disabled={loading}
+        />
       </InputFieldContainer>
       {errors?.email && <p className='text-red-500 text-sm'>{errors.email.message}</p>}
 
       <InputFieldContainer icon={['fas', 'lock']}>
-      <input
-      type='password'
-        className='flex-grow outline-none text-gray-600'
-        {...register('password')}
-        placeholder={t('form.password')}
-      />
+       <Input
+          type='password'
+          register={register}
+          id='password'
+          placeholder={t('form.password')}
+          disabled={loading}
+        />
       </InputFieldContainer>
       {errors?.password && <p className='text-red-500 text-sm'>{errors.password.message}</p>}
 

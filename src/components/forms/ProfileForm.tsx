@@ -59,32 +59,44 @@ export const ProfileForm = ({ profile, addErrorMessageCallback }: ProfileFormPro
     <Container>
       <div className='bg-gray-50 min-h-screen flex flex-col'>
         <form className='space-y-4 ' onSubmit={handleSubmit(handleProfile)}>
-          <InputFieldContainer icon={['fas', 'envelope']}>
+          <InputFieldContainer
+            icon={['fas', 'envelope']}
+            label={t('form.emailAddress')}
+            required
+          >
             <Input
               type='email'
               register={register}
               id='email'
               placeholder='contact@ordopro.fr'
-              disabled={loading}
+              disabled
             />
           </InputFieldContainer>
           <FormFieldError errorMessage={errors.email?.message} />
-          <InputFieldContainer icon={['fas', 'user']}>
+          <InputFieldContainer
+            icon={['fas', 'user']}
+            label={t('form.firstName')}
+            required
+          >
             <Input
               type='text'
               register={register}
               id='first_name'
-              placeholder='Prénom'
+              placeholder={t('form.firstName')}
               disabled={loading}
             />
           </InputFieldContainer>
           <FormFieldError errorMessage={errors.first_name?.message} />
-          <InputFieldContainer icon={['fas', 'user']}>
+          <InputFieldContainer
+          icon={['fas', 'user']}
+          label={t('form.lastName')}
+          required
+          >
             <Input
               type='text'
               register={register}
               id='last_name'
-              placeholder='Nom'
+              placeholder={t('form.lastName')}
               disabled={loading}
             />
           </InputFieldContainer>

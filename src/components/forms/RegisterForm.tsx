@@ -35,7 +35,7 @@ const RegisterForm = (): JSX.Element => {
   }
 
   return (
-    <form className='w-9/12 mt-1 p-1 space-y-4 ' onSubmit={handleSubmit(handleRegister)}>
+    <form className='mt-1 p-1 space-y-4 ' onSubmit={handleSubmit(handleRegister)}>
       <InputFieldContainer icon={['fas', 'envelope']}>
       <Input
         type='email'
