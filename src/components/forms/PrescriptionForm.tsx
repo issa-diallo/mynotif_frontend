@@ -255,57 +255,68 @@ const PrescriptionForm: FunctionComponent<PrescriptionFormProps> = ({
     <Container>
       <div className='min-h-screen flex flex-col'>
         <form className='space-y-4 mb-12' onSubmit={onFormSubmit}>
-          <InputFieldContainer icon={['fas', 'user-doctor']}>
-            <InputField
-              name='prescribing_doctor'
-              placeholder={t('form.doctor')}
-              value={prescriptionState.prescribing_doctor}
-              onChange={onInputChange}
-            />
-          </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'envelope']}>
-            <InputField
-              name='email_doctor'
-              placeholder='doctoremail@ordopro.fr'
-              value={prescriptionState.email_doctor}
-              onChange={onInputChange}
-            />
-          </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'file-prescription']}>
-            <InputField
-              type='file'
-              name='photo_prescription'
-              placeholder={t('form.selectYourPrescription')}
-              onChange={onInputChange}
-              file={file?.name}
-            />
-          </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'calendar-alt']}>
+        <InputFieldContainer
+          icon={['fas', 'user-doctor']}
+          required
+          label={t('form.doctor')}
+        >
+          <InputField
+            name='firstname'
+            placeholder={t('form.doctor')}
+            value={prescriptionState.prescribing_doctor}
+            onChange={onInputChange}
+          />
+        </InputFieldContainer>
+        <InputFieldContainer
+          icon={['fas', 'envelope']}
+          label={t('form.email_doctor_cabinet')}
+        >
+          <InputField
+            name='email_doctor'
+            placeholder={t('form.email_doctor_cabinet')}
+            value={prescriptionState.email_doctor}
+            onChange={onInputChange}
+          />
+        </InputFieldContainer>
+        <InputFieldContainer
+          icon={['fas', 'calendar-alt']}
+          required
+          label={t('form.endDate')}
+        >
             <DatePicker
               selected={endDate}
               onChange={onEndDateChange}
               dateFormat={USER_DATE_FORMAT}
-              className='flex-grow outline-none text-gray-600'
+              className="block flex-1 border-0 bg-transparent py-1.5 pl-2 pr-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 w-full"
+              wrapperClassName="h-full flex items-center"
               placeholderText={t('form.endDate')}
               peekNextMonth
               showMonthDropdown
               showYearDropdown
               dropdownMode='select'
             />
-          </InputFieldContainer>
+        </InputFieldContainer>
           {!isEditForm && (
-            <>
-              <InputFieldContainer icon={['fas', 'user-injured']}>
-                <SelectField
-                  name='patient'
-                  value={newCreatedPatientId ?? ''}
-                  onChange={onSelectChange}
-                  patients={patients}
-                />
-              </InputFieldContainer>
-
-            </>
+             <InputFieldContainer
+              icon={['fas', 'user-injured']}
+              required
+              label={t('form.selectPatient')}
+            >
+              <SelectField
+                name='patient'
+                value={newCreatedPatientId ?? ''}
+                onChange={onSelectChange}
+                patients={patients}
+              />
+            </InputFieldContainer>
           )}
+          <InputField
+            type='file'
+            name='photo_prescription'
+            placeholder={t('form.selectYourPrescription')}
+            onChange={onInputChange}
+            file={file?.name}
+          />
 
           <Button isLoading={loading} type='submit'>
             {t('navigation.validate')}

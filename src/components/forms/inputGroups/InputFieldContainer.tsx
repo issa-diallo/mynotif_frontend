@@ -1,37 +1,51 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import clsx from 'clsx'
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 
+// InputFieldContainer.tsx
 interface InputFieldContainerProps {
   children: React.ReactNode
-  icon: IconProp
+  icon?: IconProp | 'default-icon'
   disabled?: boolean
+  className?: string
+  required?: boolean
+  label?: string
 }
 
 export const InputFieldContainer = ({ 
   children,
-  icon,
-  disabled
+  icon = 'default-icon' as IconProp,
+  disabled,
+  className,
+  required,
+  label,
 }: InputFieldContainerProps): JSX.Element => (
-  <div
-    className={clsx(
-      'flex items-center bg-white rounded-lg border border-gray-300 p-3 w-full',
-      disabled && 'opacity-60 bg-gray-100 cursor-not-allowed'
+  <div className="sm:col-span-4">
+    {label && (
+      <label className="block text-sm/6 font-medium">
+        {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+      </label>
     )}
-  >
-    <div
-      className={clsx(
-        'bg-colorsecondary rounded-full w-12 h-12 flex items-center justify-center mr-3',
-      )}
-    >
-      <FontAwesomeIcon
-        icon={icon}
+    <div className="mt-2">
+      <div
         className={clsx(
-          'text-colorprimary',
+          'flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset',
+          disabled && 'opacity-60 bg-gray-100 cursor-not-allowed',
+          className,
         )}
-      />
+      >
+        {icon !== 'default-icon' && (
+          <span className="flex select-none items-center w-10 h-10 pl-3 text-colorprimary bg-colorsecondary">
+            <FontAwesomeIcon
+              icon={icon}
+              className="h-4 w-4"
+            />
+          </span>
+        )}
+        {children}
+      </div>
     </div>
-    {children}
   </div>
 )
+

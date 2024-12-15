@@ -12,13 +12,13 @@ export const PatientCard = ({ patient, onClick, className }: PatientCardProps): 
   const { firstname, lastname } = patient
   const fullName = `${firstname} ${lastname}`
   return (
-    <div onClick={onClick} className='bg-white rounded-lg p-4 shadow-md my-8'>
+    <div onClick={onClick} className='bg-white shadow rounded-lg p-4 mb-4 flex items-center space-x-4'>
       <div className='flex items-center space-x-4 mb-2'>
-        <div className={clsx(className, ' rounded-full w-12 h-12 flex items-center justify-center ')}>
-          <FontAwesomeIcon icon={['fas', 'id-badge']} className={clsx(className, 'text-xl')} />
+        <div className={clsx(className, ' rounded-full w-10 h-10 flex items-center justify-center ')}>
+          <FontAwesomeIcon icon={['fas', 'user']} className={clsx(className, 'text-xs')} />
         </div>
         <div>
-          <h3 className={clsx('font-semibold')}>{fullName}</h3>
+          <h3 className={clsx('font-semibold text-sm')}>{fullName}</h3>
         </div>
       </div>
     </div>

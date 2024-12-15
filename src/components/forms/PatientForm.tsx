@@ -100,7 +100,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
     <Container>
       <div className='min-h-screen flex flex-col'>
         <form className='space-y-4 mb-24' onSubmit={handleSubmit}>
-          <InputFieldContainer icon={['fas', 'user']}>
+          <InputFieldContainer icon={['fas', 'user']} label={t('form.firstName')} required>
             <InputField
               name='firstname'
               placeholder={t('form.firstName')}
@@ -108,7 +108,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'user']}>
+          <InputFieldContainer icon={['fas', 'user']} label={t('form.lastName')} required>
             <InputField
               name='lastname'
               placeholder={t('form.lastName')}
@@ -116,20 +116,21 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'calendar-alt']}>
-            <DatePicker
-              selected={birthdayDate}
-              onChange={onBirthdayChange}
-              dateFormat={USER_DATE_FORMAT}
-              className='flex-grow outline-none text-gray-600'
-              placeholderText={t('form.birthday')}
-              peekNextMonth
-              showMonthDropdown
-              showYearDropdown
-              dropdownMode='select'
-            />
+          <InputFieldContainer icon={['fas', 'calendar-alt']} label={t('form.birthday')}>
+          <DatePicker
+            selected={birthdayDate}
+            onChange={onBirthdayChange}
+            dateFormat={USER_DATE_FORMAT}
+            className="block flex-1 border-0 bg-transparent py-1.5 pl-2 pr-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6 w-full"
+            wrapperClassName="h-full flex items-center"
+            placeholderText={t('form.birthday')}
+            peekNextMonth
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode='select'
+          />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'city']}>
+          <InputFieldContainer icon={['fas', 'city']} label={t('form.city')}>
             <InputField
               name='city'
               placeholder={t('form.city')}
@@ -137,7 +138,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'address-card']}>
+          <InputFieldContainer icon={['fas', 'address-card']} label={t('form.address')}>
             <InputField
               name='street'
               placeholder={t('form.address')}
@@ -145,7 +146,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'phone']}>
+          <InputFieldContainer icon={['fas', 'phone']} label={t('form.phone')}>
             <InputField
               name='phone'
               placeholder={t('form.phone')}
@@ -153,7 +154,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'city']}>
+          <InputFieldContainer icon={['fas', 'city']} label={t('form.city')}>
             <InputField
               name='zip_code'
               placeholder={t('form.zipPostal')}
@@ -161,7 +162,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'id-card']}>
+          <InputFieldContainer icon={['fas', 'id-card']} label={t('form.carteVitale')}>
             <InputField
               name='health_card_number'
               placeholder={t('form.carteVitale')}
@@ -169,7 +170,7 @@ const PatientForm: FunctionComponent<PatientFormProps> = ({ patient, isEditForm 
               onChange={handleChange}
             />
           </InputFieldContainer>
-          <InputFieldContainer icon={['fas', 'id-card']}>
+          <InputFieldContainer icon={['fas', 'id-card']} label={t('form.caisseDeRattachement')}>
             <InputField
               name='ss_provider_code'
               placeholder={t('form.caisseDeRattachement')}

@@ -60,7 +60,8 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
-      'colorprimary': '#2BB8B9',
+      // 'colorprimary': '#2BB8B9',
+      'colorprimary': '#4BB5C1',
       'shade1': '#4DC5C6',
       'shade2': '#6ED2D3',
       'shade3': '#90DFE0',

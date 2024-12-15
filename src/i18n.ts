@@ -73,7 +73,7 @@ i18n
             phone: 'Phone',
             city: 'City',
             zipPostal: 'Postal Zip',
-            doctor: 'Doctor',
+            doctor: 'Doctor/Cabinet',
             selectPatient: 'Select a patient',
             endDate: 'End date',
             startDate: 'Start date',
@@ -83,7 +83,8 @@ i18n
             newPassword: 'New password',
             confirmNewPassword: 'Confirm new password',
             birthday: 'Date of Birth',
-            additionalDetails: 'Additional Details'
+            additionalDetails: 'Additional Details',
+            email_doctor_cabinet: 'Email doctor/cabinet',
           },
           text: {
             confirmationPatient: 'Are you sure you want to remove this patient?',
@@ -218,7 +219,7 @@ i18n
             phone: 'Téléphone',
             city: 'ville',
             zipPostal: 'code postal',
-            doctor: 'Médecin',
+            doctor: 'Médecin/Cabinet',
             selectPatient: 'Sélectionne un patient',
             endDate: 'Date de fin',
             startDate: 'Date de début',
@@ -228,7 +229,8 @@ i18n
             newPassword: 'Nouveau mot de passe',
             confirmNewPassword: 'Confirmer le nouveau mot de passe',
             birthday: 'Date de naissance',
-            additionalDetails: 'Détails supplémentaires'
+            additionalDetails: 'Détails supplémentaires',
+            email_doctor_cabinet: 'Email cabinet/médecin',
           },
           text: {
             confirmationPatient: 'Etes vous sur de vouloir supprimer ce patient ?',

@@ -18,11 +18,10 @@ const PatientLine: FunctionComponent<PatientLineProps> = ({ patient }) => {
     name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
 
   return (
-    <div onClick={goToPatient} className='p-3 space-y-4 relative h-auto overflow-hidden'>
-      <div className='bg-white rounded-lg p-4 shadow-md'>
+      <div onClick={goToPatient} className='bg-white shadow rounded-lg p-4 mb-4 flex items-center space-x-4'>
         <div className='flex items-center space-x-4 mb-2'>
-          <div className='bg-colorsecondary rounded-full w-12 h-12 flex items-center justify-center '>
-            <FontAwesomeIcon icon={['fas', 'id-badge']} className='text-colorprimary text-xl' />
+          <div className='bg-colorsecondary rounded-full w-10 h-10 flex items-center justify-center '>
+            <FontAwesomeIcon icon={['fas', 'id-badge']} className='text-colorprimary text-xs' />
           </div>
           <div>
             <h3 className='font-semibold'>{capitalizeFirstLetter(patient.lastname)} {capitalizeFirstLetter(patient.firstname)}</h3>
@@ -30,7 +29,6 @@ const PatientLine: FunctionComponent<PatientLineProps> = ({ patient }) => {
         </div>
         <div className='mb-4' />
       </div>
-    </div>
 
   )
 }
